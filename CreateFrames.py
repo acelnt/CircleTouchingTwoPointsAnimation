@@ -52,6 +52,7 @@ def create_frame(x):
     surface.fill(BACKGROUND_COLOUR)
     frame_centre = (FRAME_SIZE[0] / 2, FRAME_SIZE[1] / 2)
 
+    # Get the points on the frame
     top_point_centre = (frame_centre[0],
                         frame_centre[1] - (POINTS_GAP / 2))
     bottom_point_centre = (frame_centre[0],
@@ -59,10 +60,13 @@ def create_frame(x):
     circle_centre = (frame_centre[0] + x , frame_centre[1])
 
     circle_radius = calculate_radius(x)
+    # Draw the circle
     draw_circle(surface, circle_centre, circle_radius)
 
+    # Draw the measurement lines
     draw_infolines(surface, top_point_centre, bottom_point_centre, circle_centre)
 
+    # Draw the numbers
     draw_text(surface, top_point_centre, bottom_point_centre, circle_centre, circle_radius)
 
     # Draw circle centre
